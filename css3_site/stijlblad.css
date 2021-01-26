@@ -1,0 +1,228 @@
+
+/* algemeen */
+* {
+    box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  padding:0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+/*.clearfix:after {
+    content: "";
+    clear: both;
+    display:table;
+}/
+
+/* achtergrondbeelden */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    
+padding:0;
+margin:0;
+}
+.bgimg-1 {
+  background-image: url("img_parallax_low.jpg");
+  min-height: 100%;
+  padding-top: 2%;
+ 
+}
+
+.bgimg-2 {
+  background-image: url("img_parallax2.jpg");
+  min-height: 400px;
+}
+
+.bgimg-3 {
+  background-image: url("img_parallax3.jpg");
+  min-height: 400px;
+}
+/* captions en titels */
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top:-2%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  text-shadow: 1px 1px 3px #333;
+}
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px; 
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+  text-align: center;
+}
+h5 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 12px "Lato", sans-serif;
+  color: #111;
+  text-align: center;
+}
+#wisseltekst, #wisseltekst2{
+    background-color:transparent;
+    font-size:25px;
+    color: #fff;
+    letter-spacing: 10px;
+    cursor:pointer;
+    } 
+/* zwarte tekst-strook met witte tekst in */
+#tabel{
+    color:#ddd;
+    background-color:#282E34;
+    padding:50px 80px;
+    text-align:justify;
+    display:flex;
+    flex-wrap:wrap;
+    }
+   
+.col-25 {
+    margin:0;
+    vertical-align: top;
+    font: 40px "Lato", sans-serif;
+    width:25%;
+}
+.col-75 {
+    margin:0;
+    width:75%;
+}
+.col-75 a{
+        color:#ddd;
+        text-decoration:none;
+    }
+ .col-75 a:hover{
+       border-bottom: #ddd solid 1px;
+    }
+/* Contactformulier */
+#formulier {
+    /*box-sizing: border-box;*/
+    width:75%;
+    left: 12.5%;
+    top: 6.5%;
+    position: absolute;
+    display:flex;
+ 
+    text-align: left;
+    background-color:rgba(1,1,1,0.7);
+    color: #fff;
+    letter-spacing: 1px;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    }
+    
+form{ 
+    width:100%;
+    padding:0;
+    margin:0;
+     }
+    
+.split{
+    box-sizing: border-box;
+    width:100%;
+    height: auto;
+    display:block;
+    padding:3%;
+    }   
+input[type=text], select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333;
+    box-sizing: border-box;
+    resize: vertical;
+    background-color:rgb(1,1,1);
+    color: white;
+    display: inline-block;
+    margin-bottom:3%;
+}
+textarea{width: 100%;}
+    
+input[type=text]:active, select, textarea:active{
+    background-color: #333;
+    }
+form .split label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    width: 50%;
+    text-transform: capitalize;
+}
+input[type=submit]:hover, input[type=reset]:hover {
+    background-color: #333;
+}
+input[type=submit], input[type=reset]{
+    padding:12px;
+    margin-right:2%;
+    color: white;
+    background-color:rgb(1,1,1);
+    border: 1px solid #333;
+    letter-spacing: 1px;
+    float:left;
+    }
+/* info-deel formulier */
+section{
+     border-bottom: 1px solid #333;
+     color:white;
+     padding-left:5%;
+    text-align:left;
+    }
+section a, section .tekst{
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    display:block;
+    margin-bottom:6%;
+    }
+section a:hover{
+        color:grey;
+    }
+   
+    
+.icon{
+        font-family: FontAwesome;
+        font-size:1.5em;
+        text-align: center;
+        line-height:1.8em;
+        color:rgb(1,1,1);
+    
+        background-color: white;
+        display:inline-block;
+        width:40px;
+        height:40px;
+        border-radius:50%;
+        margin-top:12%;
+        margin-left:9%;
+    
+    
+    }
+    
+section H3 { margin-top:-7%;
+             color:white;
+            margin-bottom:3%;
+    }    
+   
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 600px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+#formulier, form.split,  form.split section,  form.split label, input {
+    width: 100%;
+    float:left;
+}
+}

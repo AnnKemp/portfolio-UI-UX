@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>	
+<meta charset="utf-8">
+<title>Contact</title>
+
+<link rel="stylesheet" type="text/css" href="stijlblad.css"> 
+
+<style>
+/*----------------------------- formulier -----------------------------------------------------------------------------------------------------------------*/
+		input{
+			width: 30.3%;
+			height:20px;
+			padding:1%;
+			margin-bottom:1%;
+			margin-right:0.2%;
+			font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+		}
+		textarea{
+			width: 97%;
+			height: 130px;
+			padding:1%;
+			margin: 0;
+			margin-bottom: 1%;
+		    font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+		}
+		.knop{
+			padding:0;
+			width: 10%;
+			position: relative;
+			float:right;
+			margin-right:0.6%;
+		}
+		form{
+			width: 78%;
+			height: auto;
+			padding-top: 5%;
+			padding-left: 12%;
+			padding-right:10%;
+	}
+/*----------------------------- einde formulier ---------------------------------------------------------------------------------------------------*/
+</style>
+</head>
+<body>
+<header>
+<div class="slideshow_container">
+  <img class="mySlides fade" src="fashion-12.jpg">
+  <img class="mySlides fade" src="header3.jpg">
+  <img class="mySlides fade" src="header2.jpg">
+  <img class="mySlides fade" src="header5.jpg">
+  <img class="mySlides fade" src="header7.jpg">
+  <img class="mySlides fade" src="header9.jpg">
+  <img class="mySlides fade" src="header8.jpg">
+  <img class="mySlides fade" src="header10.jpg">
+  <img class="mySlides fade" src="header11.jpg">
+  
+  <a class="btn left">&#10094;</a>
+  <a class="btn right">&#10095;</a>
+
+</div>
+	</header>
+	<div id="container">
+		<nav>
+			<ul>
+				<li><a href="shop.html">SHOP</a></li>
+				<li><a href="#">BESTEL</a></li>
+				<li><a href="#">Wie zijn wij?</a></li>
+				<li><a href="#">FAQ</a></li>
+				<li><a href="contact.html">CONTACT</a></li>
+			</ul>
+		</nav>
+
+		<form action="mailto:ann.kemp@scarlet.be" method="post" enctype="text/plain" autocomplete="on" id="formulier" >
+		Contacteer ons:<br><br>
+			<input type="text" name="Full name" value="Je volledige naam" class="leeg">
+			
+			<input type="text" name="E-mail" value="E-mailadres" class="leeg" id="email">
+			
+			<input type="text" name="Subject" value="Het onderwerp" class="leeg"><br>
+			
+			<textarea class="leeg" name="Message">Je boodschap</textarea>
+			
+			<input type="submit" class="knop" id="submitknop"><input type="reset" class="knop" value="Maak leeg">
+			
+		</form>
+
+	<footer>Fashion design: Karl Lagerfeld for Chanel</footer>
+	</div>
+
+	 
+
+<script>
+/*-------------------------------------------------- slideshow bovenaan de pagina ---------------------------------------------------------------------------*/
+var a, b;
+
+a=document.getElementsByClassName("btn left")[0];
+b=document.getElementsByClassName("btn right")[0];
+
+a.addEventListener("click", function() {
+    plusDivs(-1);
+});				   
+				   
+b.addEventListener("click", function() {		   
+	plusDivs(1);
+});
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+<script src="formvalidatie.js"></script>
+</body>
+</html>

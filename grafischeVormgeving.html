@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+	<title>tekenwerk</title>
+<meta charset="utf-8">
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body, H1, a {
+    margin: 0;
+    color: #ffffff;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 16pt;
+		font-weight: 300;
+		letter-spacing: 0.025em;
+		line-height: 1.65;
+	background: #242943;
+	color:white;
+}
+p{
+    font-size: 12px;
+    }
+	H1{
+		font-size: 24pt;
+		font-weight: bold;
+	}
+.button_back{
+	
+		position: relative;
+		float:right;
+		border: 1.5px white solid;
+		padding:5px;
+		width: 6em;
+		text-align: center;
+		text-decoration: none;
+		margin: 60px;
+	font-variant-caps: all-small-caps;
+	letter-spacing: 0.25em;
+	font-weight:bold;
+	line-height:2em;
+	}
+a:hover{
+		color:aqua;
+		border: 1.5px aqua solid;
+		
+	}
+.header {
+    text-align: center;
+    padding: 32px;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+
+}
+
+.column img {
+    margin-top: 12px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>grafische vormgeving</h1>
+  <p>Enkele voorontwerpen . . .&nbsp;&nbsp;geen definitieve resultaten<br>
+     Dit is NIET mijn beste ontwerpwerk maar dit zijn enkele voorontwerpen voor projecten die uiteindelijk wél in druk of web uitgevoerd zijn. <br>De uiteindelijke resultaten zijn in het bezit van mijn toenmalige werkgever en mogen niet zonder zijn toestemming gepubliceerd worden.<br>
+      <br>Klik op de knoppen om de grootte aan te passen.</p>
+  <button onclick="four()">4</button>
+  <button onclick="two()">2</button>
+  <button onclick="one()">1</button>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+    <img src="images/Nieuwlogo.jpg" style="width:100%">
+    <img src="images/logometslogan.jpg" style="width:100%">
+	  <img src="images/briefpapier_5.jpg" style="width:100%">
+       <img src="images/logo_eindwerkSchoool.jpg" style="width:100%">
+    
+  </div>
+  <div class="column">
+    <img src="images/Naamkaartje.jpg" style="width:100%">
+    <img src="images/affiche_hal.jpg" style="width:100%">
+    <img src="images/Schoonheidschool_mailing.jpg" style="width:100%">
+  </div>  
+  <div class="column">
+<img src="images/briefpapier_ontwerp_6.jpg" style="width:100%">
+<img src="images/briefpapier_1.jpg" style="width:100%">
+<img src="images/briefpapier_4.jpg" style="width:100%">
+
+  </div>
+  <div class="column">
+    <img src="images/intro.jpg" style="width:100%">
+   <img src="images/homepage.jpg" style="width:100%">
+   <img src="images/CAproductfiche1.jpg" style="width:100%">
+ <img src="images/CAproductfiche21.jpg" style="width:100%">
+ <img src="images/CAvulling wand.jpg" style="width:100%">
+  </div>
+</div>
+<a href="portfolio.html" class="button_back">terug</a>
+<script>
+// Four images side by side
+function four() {
+    var elements = document.getElementsByClassName("column");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.width = "25%";
+		elements[i].style.float = "left";
+		elements[i].style.marginLeft = "0";
+		elements[i].style.marginRight = "0";
+    }
+}
+
+// Two images side by side
+function two() {
+    var elements = document.getElementsByClassName("column");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.width = "50%";
+		elements[i].style.float = "left";
+		elements[i].style.marginLeft = "0";
+		elements[i].style.marginRight = "0";
+    }
+}
+
+// Full-width images
+function one() {
+    var elements = document.getElementsByClassName("column");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.width = "50%";
+		elements[i].style.float = "none";
+		elements[i].style.marginLeft = "auto";
+		elements[i].style.marginRight = "auto";
+    }
+}
+</script>
+
+</body>
+</html>

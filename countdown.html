@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+	<title>Grafische vormgeving</title>
+<meta charset="utf-8">
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body, H1, a {
+    margin: 0;
+    color: #ffffff;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 16pt;
+		font-weight: 300;
+		letter-spacing: 0.025em;
+		line-height: 1.65;
+	background: #242943;
+	color:white;
+}
+	a:hover{
+		color:aqua;
+		border: 1.5px aqua solid;
+		
+	}
+	H1{
+		font-size: 24pt;
+		font-weight: bold;
+	}
+.button_back{
+	
+		position: relative;
+		float:right;
+		border: 1.5px white solid;
+		padding:8px;
+	
+		width: 10%;
+		text-align: center;
+		text-decoration: none;
+		margin: 60px;
+	font-variant-caps: all-small-caps;
+	letter-spacing: 0.25em;
+	font-weight:bold;
+	height:3em;
+	line-height: 1.9em;
+	}
+.header {
+    text-align: center;
+    padding: 32px;
+	display: block;
+	width: 100%;
+	height: 24em;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+
+}
+
+.column img {
+    margin-top: 12px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+	video{
+		margin-left: auto;
+		margin-right: auto;	
+	}
+</style>
+<body>
+
+<!-- Header -->
+<div class="header">
+	<h1>COMING SOON . . .</h1> </p>
+<p id="demo"></p>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Nov 14, 2017 19:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = ":)";
+    }
+}, 1000);
+</script>
+</div>
+
+<a href="portfolio.html" class="button_back">back</a>
+
+
+
+
+</body>
+</html>

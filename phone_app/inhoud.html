@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {
+    box-sizing: border-box;
+}
+    body{
+margin-left:auto;
+margin-right:auto;
+font: 400 15px/1.8 "Lato", sans-serif;
+color:#003665;
+        
+width: 360px;
+height: 640px;
+
+background-size: cover;
+    }
+#logo{
+    background-image: url(KBC.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 0;
+    width: 100px;
+    height: 100px;
+   padding:0;
+    }
+#balk{
+    background-color: #003665;
+    width: 100%;
+    height: 2em;
+    margin: 0;
+    position: fixed;
+    top:0;
+    left:0;
+    }
+#container{
+    margin-top:-10%;
+    padding-top:0;
+    padding-left:10%;
+    padding-right:10%;
+    margin-bottom:10%;
+
+    }
+h1{
+        font: 400 15px/1.8 "Lato", sans-serif;
+        font-size: 2em;
+        font-style:normal;
+        text-align: center;
+        padding:5%;
+        
+    }
+p{
+    font-size: 1.4em;
+    text-align: center;
+    }
+    ul{
+        margin:0px;
+        padding:0px;
+    }
+li{
+        width:100%;
+      /* padding: 1em;*/
+        list-style-type: none;
+       color:white;
+        text-align: center;
+       letter-spacing: 1px;
+        
+       background-color:#00AEEF;
+      margin-bottom: 3px;
+        
+    }
+a{
+    text-decoration: none;
+    color:white;
+    padding: 1em;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    font-weight: bold;
+    display: block;
+  
+    }
+a.active{
+    background:#003665;
+    display: block;
+    width: 100%;
+    height: 100%;
+    }
+    
+li:hover:not(.active) {
+ background-color:#003665;
+    }
+
+
+button, .fa fa-reorder{ 
+        color: white;
+        position: fixed;
+        left:0;
+        top:5px;
+    background-color: #333;
+  border-style: hidden;
+} 
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #003665; 
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 1em;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #00AEEF;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div id="balk"><button class="fa fa-reorder" onclick="openNav()"></button></div>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Home</a>
+  <a href="inhoud.html">Betalen</a>
+  <a href="#">Verzekeren</a>
+  <a href="#">Sparen en Beleggen</a>
+<a href="#">Kredieten</a>
+
+</div>
+<div id="logo"></div>
+<div id="container">
+
+<h1>Betalen</h1>
+<p>Maak een afspraak en contacteer een medewerker</p>
+</div>
+<ul>
+   <li><a href="#">Op kantoor</a></li>
+<li><a href="via_videochat.html" class="active">Via videochat</a></li>
+<li><a href="#">Via telefoon</a></li>
+<li><a href="#">Via de betaal-app betalen</a></li>
+</ul>
+<script>
+  /* De side-navigatie */  
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+</body>
+</html>

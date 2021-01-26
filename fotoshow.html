@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+	<title>fotodisplay</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/*media query for small screen devices */
+/*@media screen and (max-width:480px) {
+    
+    /* Create two equal columns that floats next to each other */
+ /*.column {
+    float: left;
+    width: 80%;
+    padding: 10px;
+
+}*/
+
+* {
+    box-sizing: border-box;
+}
+
+body, H1, a {
+    margin: 0;
+    color: #ffffff;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 16pt;
+		font-weight: 300;
+		letter-spacing: 0.025em;
+		line-height: 1.65;
+	background: #242943;
+	color:white;
+}
+a:hover{
+	color:aqua;
+		border: 1.5px aqua solid;
+	}
+	H1{
+		font-size: 24pt;
+		font-weight: bold;
+	}
+.button_back{
+	
+		position: relative;
+		float:right;
+		border: 1.5px white solid;
+	
+		width: 6em;
+		text-align: center;
+		text-decoration: none;
+		margin: 60px;
+	font-variant-caps: all-small-caps;
+	letter-spacing: 0.25em;
+	font-weight:bold;
+	line-height: 2.5em;
+	}
+
+.header {
+    text-align: center;
+    padding: 32px;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+
+}
+
+.column img {
+    margin-top: 12px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>foto's</h1>
+  <p>Klik op de knoppen om de grootte aan te passen.</p>
+  <button onclick="four()">4</button>
+  <button onclick="two()">2</button>
+  <button onclick="one()">1</button>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+    <img src="images/macro1_.jpg" style="width:100%">
+    <img src="images/macro3.jpg" style="width:100%">
+    <img src="images/macro4.jpg" style="width:100%">
+    <img src="images/macro_6.jpg" style="width:100%">
+    <img src="images/macro7.jpg" style="width:100%">
+    <img src="images/macro_8.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/architectuur_.jpg" style="width:100%">
+    <img src="images/interieur1.jpg" style="width:100%">
+    <img src="images/landschap_.jpg" style="width:100%">
+    <img src="images/interieur_2.jpg" style="width:100%">
+    <img src="images/architectuur_2.jpg" style="width:100%">
+    <img src="images/park.jpg" style="width:100%">
+  </div>  
+  <div class="column">
+    <img src="images/studiowerk.jpg" style="width:100%">
+    <img src="images/citroen.jpg" style="width:100%">
+    <img src="images/citroen2.jpg" style="width:100%">
+    <img src="images/portret_man.jpg" style="width:100%">
+    <img src="images/zelfportret_.jpg" style="width:100%">    
+    </div>
+  <div class="column">
+   <img src="images/trapezist.jpg" style="width:100%">
+    <img src="images/clowns.jpg" style="width:100%">
+    <img src="images/acrobaat.jpg" style="width:100%">
+  </div>
+</div>
+<a href="portfolio.html" class="button_back">terug</a>
+<script>
+// Four images side by side
+function four() {
+    var elements = document.getElementsByClassName("column");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.width = "25%";
+		elements[i].style.float = "left";
+		elements[i].style.marginLeft = "0";
+		elements[i].style.marginRight = "0";
+    }
+}
+
+// Two images side by side
+function two() {
+    var elements = document.getElementsByClassName("column");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.width = "50%";
+		elements[i].style.float = "left";
+		elements[i].style.marginLeft = "0";
+		elements[i].style.marginRight = "0";
+    }
+}
+
+// Full-width images
+function one() {
+    var elements = document.getElementsByClassName("column");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.width = "50%";
+		elements[i].style.float = "none";
+		elements[i].style.marginLeft = "auto";
+		elements[i].style.marginRight = "auto";
+    }
+}
+</script>
+
+</body>
+</html>

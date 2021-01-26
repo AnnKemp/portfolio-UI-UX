@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<title>tekenwerk</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="opmaak_beelden.css">
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>illustraties en tekenwerk</h1>
+  <p>Klik op de knoppen om de grootte aan te passen.</p>
+  <button id="four">4</button>
+  <button id="two">2</button>
+  <button id="one">1</button>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+    <img src="../images/Karin_.jpg">
+    <img src="../images/Sandra.jpg">
+    <img src="../images/model.jpg">
+	<img src="../images/Sandra2.jpg">
+    <img src="../images/model2.jpg">
+  </div>
+  <div class="column">
+    <img src="../images/pic05.jpg">
+    <img src="../images/ruiter.jpg">
+    <img src="../images/interieur.jpg">
+  </div>  
+  <div class="column">
+    <img src="../images/baby.jpg">
+   <img src="../images/pic03.jpg">
+      <img src="../images/clownZelfportret.jpg">
+    <img src="../images/clowngeel.jpg">
+  </div>
+  <div class="column">
+    <img src="../images/C_A.jpg">
+    <img src="../images/C_A2.jpg">
+  </div>
+</div>
+<a href="CSS3_site_Ann_Kemp.html" class="button_back">terug</a>
+<script>
+// Four images side by side
+function four() {
+    var elements = document.getElementsByClassName("column");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.width = "25%";
+		elements[i].style.float = "left";
+		elements[i].style.marginLeft = "0";
+		elements[i].style.marginRight = "0";
+    }
+}
+
+// Two images side by side
+function two() {
+    var elements = document.getElementsByClassName("column");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.width = "50%";
+		elements[i].style.float = "left";
+		elements[i].style.marginLeft = "0";
+		elements[i].style.marginRight = "0";
+    }
+}
+
+// Full-width images
+function one() {
+    var elements = document.getElementsByClassName("column");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.width = "50%";
+		elements[i].style.float = "none";
+		elements[i].style.marginLeft = "auto";
+		elements[i].style.marginRight = "auto";
+    }
+}
+</script>
+
+</body>
+</html>
+

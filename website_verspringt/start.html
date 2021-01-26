@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="jquery.circlechart.js"></script>
+
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script>
+
+/* Jquery voor de smoothscroll */
+$(document).ready(function(){
+    //voor de pre-loader
+ 
+		$('body').addClass('loaded');
+		
+	
+    
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+margin: 0;
+padding:0;
+background-color: #f1f1f1;
+font: 400 15px/1.8 "Lato", sans-serif;
+color:rgb(1,1,1);
+}
+/* pre-loader */ 
+.no-js #loader-wrapper {
+    display: none;
+}
+ #loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+#loader {
+        display: block;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        width: 150px;
+        height: 150px;
+        margin: -75px 0 0 -75px;
+ 
+        border: 3px solid transparent;
+        border-top-color: #3498db;
+        border-radius: 50%;
+        z-index: 1500;
+        
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+
+    }
+/* indien de pagina-inhoud geladen is */
+/* de donkere achtergrond opbergen */
+.loaded #loader-wrapper .loader-section.section-left {
+    -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(-100%);  /* IE 9 */
+    transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
+}
+ 
+.loaded #loader-wrapper .loader-section.section-right {
+    -webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(100%);  /* IE 9 */
+    transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
+}
+/* geleidelijke overgang toevoegen */
+.loaded #loader-wrapper .loader-section.section-right,
+.loaded #loader-wrapper .loader-section.section-left {
+ 
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000); 
+                transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+ 
+.loaded #loader-wrapper {
+        -webkit-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+                transform: translateY(-100%);
+ 
+              -webkit-transition: all 0.3s 1s ease-out; 
+                transition: all 0.3s 1s ease-out;
+}
+
+/* de lader zelf laten verdwijnen, dus onzichtbaar maken */   
+.loaded #loader {
+    opacity: 0;
+        -webkit-transition: all 0.3s ease-out; 
+            transition: all 0.3s ease-out;
+}
+/* om op de content van de pagina te kunnen klikken */
+.loaded #loader-wrapper {
+    visibility: hidden;
+}
+
+/* einde van indien de pagina-inhoud geladen is */
+/* de animatie van de loader */
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+/*  geeft een donkere achtergrond aan de loader */    
+#loader-wrapper .loader-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: #222222;
+    z-index: 1000;
+}
+ 
+#loader-wrapper .loader-section.section-left {
+    left: 0;
+}
+ 
+#loader-wrapper .loader-section.section-right {
+    right: 0;
+}
+/* tot hier die donkere achtergrond */
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+    border-radius: 50%;
+
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+    border-radius: 50%;
+    
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+   
+}
+/* einde pre-loader */
+/* titels */
+H1{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    }
+h5 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 12px "Lato", sans-serif;
+  color: #111;
+  text-align: center;
+} 
+/* navigatie */
+#navbar {
+  background-color:rgba(100,100,100,0.9);
+  position: fixed;
+  top: -50px;
+  width: 100%;
+  display:block;
+  transition: top 0.3s;
+    z-index: 1001;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  padding: 15px;
+
+  color: #f2f2f2;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  font-size: 17px;
+}
+a{ letter-spacing: 2px;}
+#navbar a:hover {
+  background-color: black;
+  color: white;
+}
+/* voor de knop beneden die terug naar boven springt */
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 17px;
+font-variant-caps: all-small-caps;
+ background-color:rgba(100,100,100,0.9);
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+    border:none;
+}
+
+#myBtn:hover {
+  background-color: #555;
+color:white;
+}
+/* de onderdelen of sections */
+section, footer {
+    min-height: 100%;
+    padding:50px;
+    border-bottom:1px solid gray;
+}
+/* grafische vormgeving */
+    section#grafischevormgeving{
+        min-height:350px;
+    }
+img.cover{
+        float:left;
+        clear:left;
+        width: 15%;
+        height: auto;
+        margin-right: 25px;
+      margin-top: -30px;
+          -webkit-filter: opacity(100%);
+    filter:opacity(100%);
+    border: solid #ccc 1px;
+    -webkit-transition: margin-top 2s, width 2s; /* For Safari 3.1 to 6.0 */
+    transition: margin-top 2s, width 2s;
+    }
+img.cover:hover{
+     width: 40%;
+     height: auto;
+     margin-top: -300px;
+    border:none;
+    box-shadow: 1px 1px 8px #888888;
+    
+    }
+/* beelden */
+img{
+    width: 250px;
+    height:250px;
+    float:left;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    -webkit-filter: opacity(50%);
+    filter:opacity(50%);
+    -webkit-transition: webkit-filter 1s;
+    transition: filter 1s;
+    }
+
+section#fotoos{
+    padding-left:25%;
+    padding-right:25%;
+    }
+img:hover {
+filter:opacity(100%);
+-webkit-filter:opacity(100%);
+    }
+    .macro4{
+        background-image: url(images/macro4.jpg);
+        background-size:170%;
+    }
+  
+.macro8{
+        background-image: url(images/macro_8.jpg);
+         background-size:180%;
+    }
+.archi1 {
+        background-image: url(images/architectuur_.jpg);
+    }
+.archi2 {
+        background-image: url(images/architectuur_2.jpg);
+    }
+.man {
+        background-image: url(images/portret_man.jpg);
+    }
+.zelfportret {
+        background-image: url(images/zelfportret_.jpg);
+        background-size:170%;
+    }
+    p.foto{
+        margin-top: 10px;
+    }
+/* voor software-kennis */
+section#software{
+        min-height: 25%;
+    z-index: 500;
+    }
+.demo > div {
+  float: left;
+   text-align: center;
+}
+.demo{
+    width:auto;
+    margin-left: auto;
+    margin-right: auto;
+    
+    }
+section#software label {
+    text-align: center;
+    font-size: 0.9em;
+    margin-left: 20px;
+    margin-right: 20px;
+    }
+ /* hartje */
+.heart{
+	position: absolute;
+	width: 80px;
+	height: 40px;
+	top: 250%;
+	left: 50%;
+	margin-top: -45px;
+	margin-left: -50px;
+    display:none;
+}
+.heart:before, .heart:after{
+	position: absolute;
+    content: "";
+	left: 50px;
+	top: 0;
+     /* balkje maken */
+	width: 50px;
+	height: 80px;
+    /* vullen met roos */
+	background: #f1c5cf; 
+    /* ik geloof links en boven rond maken */
+	border-radius: 50px 50px 0 0;
+    /* balk -45 graden draaien */
+	transform: rotate(-45deg);
+    /* de waarden zijn x en y : het verplaatsen van het getransformeerde element */
+	transform-origin: 0 100%;
+}
+.heart:after{
+	left: 0;
+	transform: rotate(45deg);
+	transform-origin: 100% 100%;
+}
+
+.love1{
+	animation: heart-animation 1s linear .4s infinite;
+}
+.love2{
+	animation: beating .5s linear infinite alternate;
+}
+.love1:after, .love1:before{
+	background-color: #ff7693;
+}
+
+@keyframes beating{
+	0%{
+		transform: scale(1.5);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+@keyframes heart-animation{
+	46%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.3);
+	}
+	52%{
+		transform: scale(1.5);
+	}
+	55%{
+		transform: scale(3);
+	}
+	100%{
+		opacity: 0;
+		transform: scale(50);
+	}
+} 
+/* slideshow tekeningen */
+    
+/*Now the styles*/
+
+
+/*Time to apply widths for accordian to work
+Width of image = 640px
+total images = 5
+so width of hovered image = 640px
+width of un-hovered image = 40px - you can set this to anything
+so total container width = 640 + 40*4 = 800px;
+default width = 800/5 = 160px;
+*/
+
+.accordian {
+    box-sizing: border-box;
+	width: 820px;
+    height: 500px;
+	overflow: hidden;
+	
+	/*Time for some styling*/
+	margin: 0px auto;
+    padding:0;
+    border: solid 1px #ccc;
+    background-color:#FBFBFB;
+	box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.35);
+	-webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.35); 
+}
+img.tekening {
+     opacity: 1;
+     filter:opacity(100%);
+    -webkit-filter:opacity(100%);
+    width: auto;
+    height: 500px;
+    z-index: 500;
+    }
+li img.karin {
+    background-image: url("../images/Karin_.jpg");
+    background-position:-168px -15px;
+    display: block;
+    height: 500px;
+    width: 500px;
+    z-index: 505;
+    }
+li img.model {
+    background-image: url("../images/model.jpg");
+    background-position:-220px 0;
+    background-size:170% 100%;
+    background-color: black;
+    display: block;
+    height: 500px;
+    width: 400px;
+    z-index: 505;
+    }
+li img.sandra {
+    background-image: url("../images/Sandra.jpg");
+    background-position:-148px 0;
+    display: block;
+    height: 500px;
+    width: 500px;
+    z-index: 505;
+    }
+li img.paard {
+    background-image: url("../images/ruiter.jpg");
+    background-position:-170px 20px;
+    background-size:100% 90%;
+    background-color: #FEFEFE;
+    display: block;
+    height: 500px;
+    width: 600px;
+    z-index: 505;
+    }
+li img.koppaard {
+    background-image: url("../images/pic05.jpg");
+    background-position:center;
+    background-size:110% 100%;
+    background-color: #FBFBFB;
+    display: block;
+    height: 500px;
+    width: 600px;
+    z-index: 505;
+    }
+
+/*A small hack to prevent flickering on some browsers*/
+.accordian ul {
+	width: 2000px;
+    margin:0;
+    padding:0;
+	/*This will give ample space to the last item to move
+	instead of falling down/flickering during hovers.*/
+}
+
+.accordian li {
+	position: relative;
+	display: block;
+	width: 170px;
+	float: left;
+	 padding:0;
+	
+	box-shadow: 5px 10px 25px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 5px 10px 25px 0 rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:5px 10px 25px 0 rgba(0, 0, 0, 0.5);
+	
+	/*Transitions to give animation effect*/
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	/*If you hover on the images now you should be able to 
+	see the basic accordian*/
+}
+
+/*Reduce with of un-hovered elements*/
+.accordian ul:hover li {width: 60px;}
+/*Lets apply hover effects now*/
+/*The LI hover style should override the UL hover style*/
+.accordian ul li:hover {width: 300px;}
+
+
+.accordian li img {
+	display: block;
+}
+
+/*de titel*/
+.image_title {
+	background: #333;
+	position: absolute;
+	left: 0; bottom: 0;	
+    width: 700px;
+    z-index: 800;
+    padding: 20px;
+    border-left: solid 1px white;
+    color: #fff;
+}
+.image_title a {
+	display: block;
+	text-decoration: none;
+	font-size: 16px;
+    z-index: 900;
+}
+/* voor het formulier */
+input[type=text], select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+    font-family: monospace;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit], input[type=reset] {
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    margin-left:5px;
+    margin-top:5px;
+    border: none;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover, input[type=reset]:hover {
+    background-color: #00CCFF; }
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+    footer{
+    text-align: center;
+    font-size: 0.8em;
+    background-color: black;
+    color:white;
+    }
+
+/* voor smallere devices */
+@media (max-width: 900px) {
+    
+  img.cover:hover{
+     width: 100%;
+     height: auto;
+    border: solid 1px #ccc;
+     box-shadow: 1px 1px 3px #ccc;
+    }  
+ .macro4, .macro8, .archi1, .archi2, .man, .zelfportret{
+    width: 100%;
+    }   
+    }
+/* voor smallere devices */
+@media (max-width: 600px) {
+    .col-25, .col-75, input[type=submit], input[type=reset], img {
+        width: 100%;
+        margin-top: 0;
+    }
+    input[type=submit], input[type=reset]{
+       margin-top: 1px;
+    }
+    p{
+       text-align:left; 
+    }
+section#fotoos{
+        padding-left:5%;
+        padding-right:5%;
+    }
+#navbar a {
+        float: left;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid black;
+        background-color:rgba(100,100,100,0.9);
+        font-size: 1em;
+       
+}
+#navbar {
+        position: relative;
+        top:0px;
+       
+    }
+img.cover:hover{
+     width: 100%;
+     height: auto;
+    border: solid 1px #ccc;
+     box-shadow: 1px 1px 3px #ccc;
+    }
+.macro4, .macro8, .archi1, .archi2, .man, .zelfportret{
+    width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<div id="navbar">
+  <a href="#cv">CV</a>
+ <a href="#grafischevormgeving">Grafische Vormgeving</a>
+  <a href="#ux">UX</a>
+    <a href="#ui">Ui</a>
+  <a href="#fotoos">Foto's</a>
+  <a href="#code">Code</a>
+    <a href="#software">Software</a>
+     <a href="#tekeningen">Tekeningen</a>
+  <a href="#contact">Contact</a>
+</div>
+<section id="cv">
+  <H1>CURRICULUM VITAE</H1>
+  <p>Profiel: Ik heb een Master in de Grafische Vormgeving behaald in de Karel de Grote Hogeschool, campus Sint Lucas, en ik ben verschillende jaren actief als Webdesigner (Interface design + HTML + CSS + Javascript + Animatie-software) en Grafisch Vormgever geweest.<br>Ook heb ik een opleiding Webontwikkeling met PHP (6 maanden - full-time) gevolgd bij Cevora om mijn Web-skills bij te spijkeren.
+    </p><p>
+Meer recent heb ik jonge mensen die een Multimedia opleiding volgden opgeleid. Web en Grafische Vormgeving (Adobe Suite) waren mijn specialiteiten (in het technisch middelbaar onderwijs van de derde graad) (2010 - 2017).<br>Zo heb ik mijn studenten o.a. opgeleid in Grafische Vormgeving, HTML, HTML5, CSS, CSS3, Interfacedesign, Usability, Javascript, Photoshop en Animate CC.<br>
+Ook heb ik in het avondonderwijs Webdesign 1 (Dreamweaver) en Webdesign 2 (Drupal) gegeven.</p><h5><a href="cv2018 Ann Kemp_UX.pdf">DOWNLOAD HIER HET VOLLEDIGE CV</a></h5>
+</section>
+<section  id="grafischevormgeving">
+<img src="images/pic08.jpg" class="cover" alt="Parfum-pagina Talkies magazine" />
+<H1 style="width:60%">Grafische Vormgeving</H1>
+
+Ik heb een opleiding Grafische Vormgeving genoten in de Karel de Grote Hogeschool, campus Sint-Lucas te Antwerpen. Daarna heb ik verschillende jaren als Grafische Vormgever en DTP-operator gewerkt. Klanten waren: Evinrude (folders) en Johnson, Talkies magazine, Steps magazine, M&M's, Mars, Mentos en C&A.
+    </section>
+<section  id="ui">
+<H1>UI</H1>
+Na een cursus van Cevora (webontwikkelaar met PHP) (ActionScript 2, Linux, MySQL, PHP, Flash -> nu Animate CC, JavaScript, HTML, HTML5, CSS, CSS3) heb ik verschillende jaren bij verschillende bedrijven gewerkt als webdesigner met PHP - klanten waren: LacoWoodoil, Walter Van Beierendonck, Disney video's Belgium, Kertasa, Fleurop, . . .<br><br>
+ <a href="http://home.scarlet.be/~ak421856/index.html">voorbeeldsite 1</a><br>   
+<a href="http://home.scarlet.be/~ak421856/css3_site/CSS3_site_Ann_Kemp.html">voorbeeldsite 2</a><br>
+<a href="http://home.scarlet.be/~ak421856/phone_app/index.html">app 1</a><br>
+</section>
+
+
+<section id="software">
+  <H1>PROGRAMMAKENNIS en CODE</H1>
+ <div class="demo row">
+
+     <label for="illustrator"> <div  id="illustrator" class="demo-1" data-percent="75"></div>
+     <p>Illustrator</p></label>
+     <label for="photoshop"> <div class="demo-2" id="photoshop" data-percent="80"></div>
+     <p>Photoshop</p></label>
+     <label for="indesign"> <div class="demo-3" id="indesign" data-percent="90"></div><p>Indesign</p></label>
+     
+       <label for="CSS"><div class="demo-4" id="CSS" data-percent="90"></div><p>CSS</p></label>
+       <label for="CSS3"><div class="demo-5" id="CSS3" data-percent="75"></div><p>CSS3</p></label>
+       <label for="HTML"><div class="demo-6" id="HTML" data-percent="98"></div><p>HTML</p></label>
+     <label for="HTML5"><div class="demo-7" id="HTML5" data-percent="85"></div><p>HTML5</p></label>
+       <label for="javascript"><div class="demo-8" id="javascript" data-percent="65"></div><p>JavaScript</p></label>
+      <label for="jquery"><div class="demo-9" id="jquery" data-percent="20"></div><p>jQuery</p></label>
+    </div>
+</section>
+<section id="code">
+  <H1>CODE</H1>
+<div class="heart love1"></div>
+<div class="heart love2"></div>
+    <p>Met HTML en HTML5, CSS, <a href="#" id="css">CSS3</a>, JavaScript en jQuery (basis) schrijf ik de front-end van mijn sites.<br>
+<p><a href="http://home.scarlet.be/~ak421856/css3_site/CSS3_site_Ann_Kemp.html">voorbeeldsite 1</a>&nbsp;<br>In HTML, CSS3 en JavaScript. Rechtsklik in je browser en check de code! :)<br>
+
+<a href="http://home.scarlet.be/~ak421856/phone_app/index.html">app 1</a>&nbsp;<br> Een stukje app in HTML5, CSS3 en JavaScript. Rechtsklik in je browser  (paginabron weergeven)  en check de code! :)<br>
+ </p>
+   
+PHP (basic nog geen OOP (meestal copy-paste)), MySQL (basis) in combinatie met PHPmyAdmin voor de back-end.
+</section>
+<section id="fotoos" class="row">
+<H1 style="text-align: center; text-transform:none" id="wissel">FOTOGRAFIE</H1>
+
+<a href="fotoshow.html">
+<img class="macro4">
+<img class="macro8">
+<img class="archi1">
+<img class="archi2">
+<img class="man">
+<img class="zelfportret">
+</a>
+
+</section>
+<section id="ux">
+  <H1>UX</H1>
+  <p>
+Software: de InVisionapp, voor de architectuur: RealtimeBoard.<br>
+Kennis: UX met papier (er staan een heleboel interessante cursussen bij Lynda.com online! :) ).</p>Projectje: Eerst de inhoud, functionaliteit, architectuur op papier (papieren UX) dan deze planning: in <a href="https://realtimeboard.com/app/board/o9J_k0Zf_Eg=/">"Realtimeboard"</a>  &nbsp;&nbsp; &nbsp;
+Daarna een eerste uitvoering: inhoud en functionaliteit in <a href="https://projects.invisionapp.com/share/ZBERY9FGD#/screens">INVISIONAPP</a>  &nbsp;<br>En dan een tweetal pagina's in <a href="http://home.scarlet.be/~ak421856/phone_app/index.html">HTML, CSS en Javascript . . .</a>
+</section>
+<section id="tekeningen">
+     <a href="tekenwerk.html" style=" text-decoration:none; "><H1 style="text-align: center; color:black;">TEKENINGEN</H1></a>
+<div class="accordian">
+	<ul>
+		<li>
+            <a href="../images/Karin_.jpg">
+			<div class="image_title">Portret Karin</div>
+                <img class="tekening karin" />
+			</a>
+		</li>
+		<li>
+            <a href="../images/model.jpg">
+                <div class="image_title">Portret model</div>
+		          <img class="tekening model">
+			</a>
+		</li>
+		<li>
+            <a href="../images/Sandra.jpg">
+			<div class="image_title">Portret Sandra</div>
+				<img class="tekening sandra" />
+			</a>
+		</li>
+		<li>
+            <a href="../images/ruiter.jpg">
+			<div class="image_title">Snelschets ruiter</div>
+				<img class="tekening paard" />
+			</a>
+		</li>
+		<li>
+            <a href="../images/pic05.jpg">
+			<div class="image_title">Snelschets buste paard</div>
+				<img class="tekening koppaard" />
+			</a>
+		</li>
+	</ul>
+</div>
+</section>
+    <section id="contact">
+      <H1>CONTACT</H1>
+      <form id="form1" action="mailto:ann.kemp@scarlet.be" autocomplete="on" method="POST" onsubmit="return validateForm();" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Voornaam</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="voornaam" >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="name">Achternaam</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" name="achternaam" >
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="email">E-mail</label>
+              </div>
+      <div class="col-75">
+        <input type="text" id="email" name="email"  >
+      </div>
+    </div>
+      <div class="row">
+      <div class="col-25">
+        <label for="message">Onderwerp</label>
+      </div>
+      <div class="col-75">
+        <textarea id="message" name="onderwerp" style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+     <input type="reset" value="Wissen" onclick="leeg()"> <input type="submit" value="Verzenden">
+    </div>
+  </form>
+    </section>
+<footer>Deze website werd door Ann Kemp in HTML5, CSS3, Javascript en jQuery geschreven.</footer>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script src="validatie.js"></script>
+<script>
+/*$(document).ready(function() {
+ 
+    setTimeout(function(){
+        $('body').addClass('loaded');
+        $('h1').css('color','#222222');
+    }, 3000);
+ 
+});*/
+// When the user scrolls down 20px from the top of the document, slide down the navbar
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("navbar").style.top = "0";
+        document.getElementById("myBtn").style.display = "block";
+    } 
+    else if(document.body.width < "600px"){
+        document.getElementById("navbar").style.top = "0";
+        document.getElementById("myBtn").style.display = "block";
+    }
+    else {
+        document.getElementById("navbar").style.top = "-50px";
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+
+    
+/* CSS3-hart aan of uit zetten */
+document.getElementById("css").addEventListener("mouseover", toonhart);
+document.getElementById("css").addEventListener("click", verberghart);
+    
+function toonhart(){
+
+var a=document.getElementsByClassName("heart");
+   
+for(i=0; i<= a.length; i++){ 
+    
+      a[i].style.display="block";
+    }
+}
+function verberghart(){
+
+var a=document.getElementsByClassName("heart");
+   
+for(i=0; i<= a.length; i++){ 
+    
+      a[i].style.display="none";
+    }
+}
+/* fotografie: hobby - tekstwissel + link */
+    var x=document.getElementById("wissel");
+    x.addEventListener("mouseover", tekstWissel);
+    x.addEventListener("mouseout", tekstTerug);
+    x.addEventListener("click", toLink);
+    
+    function tekstWissel(){ 
+    x.innerHTML="hobby";   
+    }
+    function tekstTerug(){
+        x.innerHTML="FOTOGRAFIE";
+    }
+    function toLink(){
+        window.location.assign("fotoshow.html");
+    }
+    
+// de cirkelvormige charts voor programma-kennis
+$('.demo-1').percentcircle({
+animate : true,
+diameter : 100,
+guage: 2,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#00ffff',
+percentSize: '15px',
+percentWeight: 'normal'
+});
+
+$('.demo-2').percentcircle({
+animate : false,
+diameter : 100,
+guage: 3,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#0059FF',
+percentSize: '15px',
+percentWeight: 'normal'
+});
+
+$('.demo-3').percentcircle({
+animate : false,
+diameter : 100,
+guage: 3,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#ff0000',
+percentSize: '18px',
+percentWeight: 'normal'
+});
+$('.demo-4').percentcircle({
+animate : true,
+diameter : 100,
+guage: 3,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#46CFB0',
+percentSize: '18px',
+percentWeight: 'normal'
+});		
+$('.demo-5').percentcircle({
+animate : true,
+diameter : 100,
+guage: 3,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#00CCFF',
+percentSize: '18px',
+percentWeight: '20px'
+});	
+$('.demo-6').percentcircle({
+animate : true,
+diameter : 100,
+guage: 10,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#ff00ff',
+percentSize: '18px',
+percentWeight: 'normal'
+});	
+$('.demo-7').percentcircle({
+animate : true,
+diameter : 100,
+guage: 10,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#32CD32',
+percentSize: '18px',
+percentWeight: 'normal'
+});
+$('.demo-8').percentcircle({
+animate : true,
+diameter : 100,
+guage: 10,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#FFCC00',
+percentSize: '18px',
+percentWeight: 'normal'
+});
+$('.demo-9').percentcircle({
+animate : true,
+diameter : 100,
+guage: 10,
+coverBg: '#fff',
+bgColor: '#efefef',
+fillColor: '#FF6600',
+percentSize: '18px',
+percentWeight: 'normal'
+});
+</script>
+
+</body>
+</html>

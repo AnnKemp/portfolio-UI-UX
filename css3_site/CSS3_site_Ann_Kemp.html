@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="stijlblad.css">
+<script>
+
+/* Jquery voor pre-loader */
+$(document).ready(function(){
+    //voor de pre-loader
+ 
+		$('body').addClass('loaded');
+});
+</script>
+<style>
+/* pre-loader */ 
+.no-js #loader-wrapper {
+    display: none;
+}
+
+#loader-wrapper {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  background-color: #646464;
+  text-align: center;
+  z-index: 1000;
+}
+
+#loader {
+  display:block;
+position: absolute;
+margin-top: 0;
+margin-bottom: 0;
+  top:37%;
+  z-index: 1001;
+  left:50%;
+  margin-left: -50px;
+  padding: 0;
+  font-family: ‘Arial Narrow’, sans-serif;
+  font-weight: 100;
+  font-size: 1.1em;
+  color: white;
+}
+/* indien de pagina-inhoud geladen is */
+/* de donkere achtergrond opbergen */
+.loaded #loader-wrapper {
+        -webkit-transform: opacity(0%);
+            -ms-transform: opacity(0%);
+                transform: opacity(-100%);
+        opacity: 0;
+    
+           -webkit-transition: all 0.14s 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000); 
+                transition: all 0.14s 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+/* de lader zelf laten verdwijnen, dus onzichtbaar maken */   
+.loaded #loader {
+    opacity: 0;
+        -webkit-transition: all 0.6s ease-out; 
+            transition: all 0.6s ease-out;
+}
+/* om op de content van de pagina te kunnen klikken */
+.loaded #loader-wrapper {
+    visibility: hidden;
+    height: 0;
+
+}
+/* einde verbergen lader indien de pagina geladen is */
+.let1, .let2, .let3, .let4, .let5, .let6, .let7{
+  position: relative;
+  top: 0.63em;  
+  display: inline-block;
+  text-transform: uppercase;  
+  opacity: 0;
+  transform: rotateX(-90deg);
+}
+
+.let1 {
+  animation: drop 1.2s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+.let2 {
+  animation: drop 1.2s ease-in-out infinite;
+  animation-delay: 1.3s;
+}
+
+.let3 {
+  animation: drop 1.2s ease-in-out infinite;
+  animation-delay: 1.4s;
+}
+
+.let4 {
+  animation: drop 1.2s ease-in-out infinite;
+  animation-delay: 1.5s;
+
+}
+
+.let5 {
+  animation: drop 1.2s ease-in-out infinite;
+  animation-delay: 1.6s;
+}
+
+.let6 {
+  animation: drop 1.2s ease-in-out infinite;
+  animation-delay: 1.7s;
+}
+
+.let7 {
+  animation: drop 1.2s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+@keyframes drop {
+    10% {
+        opacity: 0.5;
+    }
+    20% {
+        opacity: 1;
+        top: 3.78em;
+        transform: rotateX(-360deg);
+    }
+    80% {
+        opacity: 1;
+        top: 3.78em;
+        transform: rotateX(-360deg);
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        top: 6.94em
+    }
+}
+   
+    
+    
+    
+    </style>
+</head>
+<body>
+<div id="loader-wrapper">
+ <div id="loader">
+    <span class="let1">l</span>  
+    <span class="let2">o</span>  
+    <span class="let3">a</span>  
+    <span class="let4">d</span>  
+    <span class="let5">i</span>  
+    <span class="let6">n</span>  
+    <span class="let7">g</span>  
+  </div>
+</div>
+<div class="bgimg-1">
+  <div class="caption">
+    <span class="border">Ann Kemp</span>
+  </div>
+</div>
+
+<div style="color: #777;background-color:white; padding:50px 80px;text-align:justify;">
+  <h3>Curriculum Vitae</h3>
+ <p>Profiel: Ik heb een Master in de Grafische Vormgeving behaald in de Karel de Grote Hogeschool, campus Sint Lucas, en ik ben verschillende jaren actief als Webdesigner (Interface design + HTML + CSS + Javascript + Animatie-software) en Grafisch Vormgever geweest. Ook heb ik een opleiding Webontwikkeling met PHP (6 maanden - full-time) gevolgd bij Cevora om mijn Web-skills bij te spijkeren.</p><p>Meer recent heb ik jonge mensen die een Multimedia opleiding volgden opgeleid. Web en Grafische Vormgeving (Adobe Suite) waren mijn specialiteiten (in het technisch middelbaar onderwijs van de derde graad) (2010 - 2017).
+    Zo heb ik mijn studenten o.a. opgeleid in Grafische Vormgeving, HTML, HTML5, CSS, CSS3, Interfacedesign, Usability, Javascript, Photoshop en Animate CC.<br> Ook heb ik in het avondonderwijs Webdesign 1 (Dreamweaver) en Webdesign 2 (Drupal) gegeven.</p><h5> <a href="cv2020-UI-UX.pdf">DOWNLOAD hier het volledige cv</a></h5>   
+</div>
+<div class="bgimg-2">
+<div id="wisseltekst" class="caption">FOTOGRAFIE</div>
+</div>
+
+<div style="position:relative;">
+<div id="tabel">
+<p class="col-25">CODE</p>
+
+    <p class="col-75">Front-End :&nbsp;&nbsp;HTML5, CSS3, JavaScript, jQuery<br>
+        Back-End :&nbsp;&nbsp;PHP, MySQL - Ubuntu, GitHub
+</p>
+</div>
+</div>
+<div class="bgimg-3">
+  <div id="wisseltekst2" class="caption">WEBSITES en DRUKWERK</div>
+</div>
+
+<div style="position:relative;">
+  <div id="tabel">
+    <p class="col-25">UX</p>
+      <p class="col-75">Software: <a href="https://invis.io/ZBERY9FGD">de InVisionapp</a>, voor de architectuur: <a href="https://realtimeboard.com/app/board/o9J_k0Zf_Eg=/">RealtimeBoard</a>.<br> Kennis: UX met papier (er staan een heleboel interessante cursussen bij Lynda.com online! :)  ).</p>
+  </div>
+</div>
+
+<div class="bgimg-1">
+  <div id="formulier">
+	<form method="post" action="mailto:ann.kemp@scarlet.be" enctype="multipart/form-data" class="split">
+		
+										<label class="required" for="name">Naam</label>
+										<input type="text" name="name" id="name" required />
+                                        
+										<label class="required" for="email">E-mail</label>
+										<input type="text" name="email" id="email" required />
+								
+                                        
+										<label class="required" for="firmname">Bedrijfsnaam</label>
+										<input type="text" name="firmname" id="firmname" required  />
+								
+									
+										<label class="required" for="tel">Telefoonnummer</label>
+										<input type="text" name="telefoon" id="telefoon" required />
+								
+										<label class="required" for="message">Uw boodschap</label>
+										<textarea name="message" id="message" rows="6" required></textarea>
+									
+									<div id="actions">
+										<input type="submit" value="Zend bericht" class="special" />
+										<input type="reset" value="Wis" />
+									</div>
+        
+       </form>
+				<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon alt fa-envelope"></span>
+										<h3>e-mail</h3>
+										<a href="mailto:ann.kemp@scarlet.be" class="tekst">ann.kemp@scarlet.be</a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon alt fa-phone"></span>
+										<h3>telefoonnummer</h3>
+										<span class="tekst">(032) 03 256 94 36</span>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+										<span class="icon alt fa-home"></span>
+										<h3>adres</h3>
+										<span class="tekst">Verhoevenlei 116,
+										2930 Brasschaat<br />
+										België</span>
+									</div>
+								</section>
+                            </section>
+						</div>
+				
+  </div>
+<script>
+/* caption 1 - tekstwissel + link */
+    var x=document.getElementById("wisseltekst");
+    x.addEventListener("mouseover", tekstWissel);
+    x.addEventListener("mouseout", tekstTerug);
+    x.addEventListener("click", toLink);
+    
+    function tekstWissel(){ 
+    x.innerHTML="hobby";   
+    }
+    function tekstTerug(){
+        x.innerHTML="FOTOGRAFIE";   
+    }
+    function toLink(){
+        window.location.assign("fotoshow.html");
+    } 
+    
+/* caption 2 - tekstwissel + link */
+    var y=document.getElementById("wisseltekst2");
+    y.addEventListener("mouseover", tekstWissel2);
+    y.addEventListener("mouseout", tekstTerug2);
+    y.addEventListener("click", toLink2);
+    
+    function tekstWissel2(){ 
+        y.innerHTML="tekeningen en illustraties";   
+    }
+    function tekstTerug2(){
+        y.innerHTML="WEBSITES en DRUKWERK";   
+    }
+    function toLink2(){
+        window.location.assign("tekenwerk.html");
+    }  
+</script>
+</body>
+</html>

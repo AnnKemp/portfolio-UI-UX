@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fotodisplay</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" type="text/css" href="opmaak_beelden.css">
+<body>
+<!-- Header -->
+<div class="header">
+  <h1>foto's</h1>
+  <p>Klik op de knoppen om de grootte aan te passen.</p>
+  <button id="four">4</button>
+  <button id="two">2</button>
+  <button id="one">1</button>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+    <img src="../images/macro1_.jpg">
+    <img src="../images/macro3.jpg"> 
+    <img src="../images/macro4.jpg">
+    <img src="../images/macro_6.jpg">
+    <img src="../images/macro7.jpg">
+    <img src="../images/macro_8.jpg">
+  </div>
+  <div class="column">
+    <img src="../images/architectuur_.jpg">
+    <img src="../images/interieur1.jpg">
+    <img src="../images/landschap_.jpg">
+    <img src="../images/interieur_2.jpg">
+    <img src="../images/architectuur_2.jpg">
+    <img src="../images/park.jpg">
+  </div>  
+  <div class="column">
+    <img src="../images/studiowerk.jpg">
+    <img src="../images/citroen.jpg">
+    <img src="../images/citroen2.jpg">
+    <img src="../images/portret_man.jpg">
+    <img src="../images/zelfportret_.jpg">    
+    </div>
+  <div class="column">
+   <img src="../images/trapezist.jpg">
+    <img src="../images/clowns.jpg">
+    <img src="../images/acrobaat.jpg">
+  </div>
+</div>
+<a href="start.html" class="button_back">terug</a>
+<script>
+document.getElementById("one").addEventListener("click", one);
+document.getElementById("two").addEventListener("click", two);
+document.getElementById("four").addEventListener("click", four);
+    
+x=document.getElementsByTagName("button");
+    var j;
+    for (j = 0; j < x.length; j++) { 
+  x[j].addEventListener("mouseover", five); 
+  x[j].addEventListener("mouseout", six); 
+    } 
+
+// als je over de cijfers hoovert krijg je de tekst te zien
+function five(){
+  var alements = document.getElementsByTagName("p");
+    var i;
+    alements[0].style.color = "#ddd";
+}
+// on mouseout (de cijfers) wordt het paragraaf terug verborgen
+function six(){
+  var alements = document.getElementsByTagName("p");
+    var i;
+    alements[0].style.color = "#282E34";
+}
+
+function four() {
+    var elements = document.getElementsByClassName("column");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.width = "25%";
+		elements[i].style.float = "left";
+		elements[i].style.marginLeft = "0";
+		elements[i].style.marginRight = "0";
+    }
+}
+
+// Two images side by side
+function two() {
+    var elements = document.getElementsByClassName("column");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.width = "50%";
+		elements[i].style.float = "left";
+		elements[i].style.marginLeft = "0";
+		elements[i].style.marginRight = "0";
+    }
+}
+
+// Full-width images
+function one() {
+    var elements = document.getElementsByClassName("column");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        elements[i].style.width = "50%";
+		elements[i].style.float = "none";
+		elements[i].style.marginLeft = "auto";
+		elements[i].style.marginRight = "auto";
+    }
+}
+</script>
+</body>
+</html>
