@@ -39,6 +39,23 @@ body, H1, a {
 	font-weight:bold;
 	line-height: 2;
 	}
+.button_top{
+  border: solid white 1px;
+  height: 50px;
+  width: 50px;
+  border-radius:50%;
+  color:white;
+  background-color: #242943;
+  text-align: center;
+  line-height: 47px;
+}
+.button_top:hover{
+  height: 50px;
+  width: 50px;
+  border-radius:50%;
+  background-color: white;
+  color: #242943;
+}
 a:hover{
 		color:aqua;
 		border: 1.5px aqua solid;
@@ -74,9 +91,9 @@ a:hover{
 <div class="header">
   <h1>illustraties en tekenwerk</h1>
   <p>Je kan de beelden ook op halve grootte of full-size bekijken.</p>
-  <button onclick="four()">25%</button>
-  <button onclick="two()">50%</button>
-  <button onclick="one()">100%</button>
+  <button onclick="four()" class="button_top">4</button>
+  <button onclick="two()" class="button_top">2</button>
+  <button onclick="one()" class="button_top">1</button>
 </div>
 
 <!-- Photo Grid -->
